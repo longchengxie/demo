@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/task
+		   http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+		   default-lazy-init="true">
+           
+ 	<context:annotation-config />
+ 	
+ 	<context:component-scan base-package="com.lvmama">  
+ 		 <!-- 排除vst.back目录下Controller的service注入 -->         
+		 <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<task:executor id="myexecutor" pool-size="50-100" queue-capacity="1000" rejection-policy="CALLER_RUNS"/>
+	<task:annotation-driven executor="myexecutor"/>
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:log4j.properties</value>
+				<value>classpath:httpsqs.properties</value>
+				<value>classpath:memcached.properties</value>
+				<value>classpath:redis.properties</value>
+				<value>classpath:redisSharded.properties</value>
+				<value>classpath:jms.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<import resource="classpath:applicationContext-httpsqs-producer.xml"/>
+	<import resource="classpath:applicationContext-httpsqs-consumer.xml"/>
+	<import resource="classpath:applicationContext-xcl-redisCluster.xml"/>
+	<import resource="classpath:applicationContext-redisSharded.xml"/>
+	<import resource="classpath:applicationContext-xcl-job.xml"/>
+	<import resource="classpath:applicationContext-xcl-comm-jms.xml"/>
+	<import resource="classpath:applicationContext-xcl-processer.xml"/>
+	
+	<!-- <bean id="indexServiceImpl" class="com.lvmama.xcl.service.impl.IndexServiceImpl"></bean>
+	<bean id="indexServiceImpl2" class="com.lvmama.xcl.service.impl.IndexServiceImpl"></bean> -->
+	
+</beans>

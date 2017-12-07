@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName">
+	<bean id="commMySQLLogProcesser" class="com.lvmama.dest.common.httpsqs4j.processer.CommMySQLLogProcesser"/>
+	<bean id="commIndexLogProcesser" class="com.lvmama.dest.common.httpsqs4j.processer.CommIndexLogProcesser"/>
+	
+	<!-- <bean id="messageCustomer" class="com.lvmama.dest.common.httpsqs4j.msg.HttpsMessageConsumer">
+	    <property name="destName" value="HttpSqs.test.${httpsqs_node}"/>
+	    <property name="stringUri" value="${httpsqs_uri}"/>
+	    	<property name="processerList">
+			<list>
+				<ref bean="commMySQLLogProcesser"/>
+				<ref bean="commIndexLogProcesser"/>
+			</list>
+		</property>
+	</bean> -->
+</beans>

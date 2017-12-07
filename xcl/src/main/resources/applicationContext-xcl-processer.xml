@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- <bean id="ebkCertifProcesser" class="com.lvmama.vst.back.ebooking.processer.EbkCertifProcesser" />
+	<bean id="visaApprovalProcesser" class="com.lvmama.vst.back.prod.processer.VisaApprovalProcesser" />
+	<bean id="ebkCertifCombCruiseProcesser" class="com.lvmama.vst.back.ebooking.processer.EbkCertifCombCruiseProcesser" />
+	<bean id="ebkTicketCertifProcesser" class="com.lvmama.vst.back.ebooking.processer.EbkTicketCertifProcesser" />
+	<bean id="orderStatusPushProcesser" class="com.lvmama.vst.back.pub.processer.OrderStatusPushProcesser" />
+	<bean id="ebkOrderMessageProcesser" class="com.lvmama.vst.back.ebooking.processer.EbkOrderMessageProcesser" /> -->
+	<bean id="xclMessageProcesser" class="com.lvmama.xcl.processer.XclMessageProcesser" />
+	
+	
+	<bean id="xclMessageConsumer" class="com.lvmama.xcl.comm.jms.TopicMessageConsumer">
+		<property name="destName"><value>ActiveMQ.XCL.${jms_node}</value></property>
+		<property name="processerList">
+			<list>
+				<!-- <ref local="ebkOrderMessageProcesser"/>
+				<ref local="ebkCertifProcesser"/>
+				<ref local="orderStatusPushProcesser"/> -->
+				<ref local="xclMessageProcesser"/>
+			</list>
+		</property>
+	</bean>
+
+	
+	<!-- 订阅 -->
+	<bean id="xclMessageListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg ref="xclMessageConsumer" />
+		<property name="defaultListenerMethod" value="receive" />
+	</bean>
+	
+
+	 <bean id="orderTopicListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsConnectionFactory" />
+		<property name="destination" ref="XCL_TOPIC" />
+		<property name="messageListener" ref="xclMessageListener" />
+	</bean>
+	
+	
+	
+</beans>

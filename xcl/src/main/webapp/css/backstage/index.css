@@ -1,0 +1,23 @@
+body { font-size: 16px; }
+
+h1 { width: 1200px; margin: 0 auto; }
+
+nav { background: #33CCFF; height: 30px; }
+nav ul { width: 1200px; margin: 0 auto; }
+nav ul li { float: left; }
+nav ul li a { color: #FFFFFF; line-height: 30px; font-size: 15px; display: block; padding: 0 15px; }
+nav ul li a:hover { background: #009cdd; }
+
+.main { width: 1200px; margin: 20px auto; }
+.main small { font-size: 16px; }
+.main small .done { padding: 4px; background: #1eac6b; border-radius: 5px; color: #FFF; text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5); }
+.main ul li { width: 200px; margin-right: 40px; float: left; }
+.main ul li a { color: #333; display: block; border: 2px solid #CCC; line-height: 30px; padding: 5px 10px; font-size: 12px; }
+.main ul li a small { font-size: 12px; color: #999; }
+.main ul li.done { background: #d6ffec; }
+.main ul li.done a:hover { border: 2px solid #1eac6b; }
+
+footer { height: 50px; background: #333; color: #CCC; }
+footer .copyright { padding-top: 10px; width: 1200px; margin: 0 auto; }
+footer .copyright a { color: #CCC; }
+footer .copyright a:hover { border-bottom: 1px solid #CCC; }

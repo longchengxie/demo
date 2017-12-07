@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/xcl/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<img alt="验证码" src="/xcl/login/validateCode.do"
+		onclick="changeValidateCodeHandler()" id="validateCodeImg">
+	<a href="javascript:changeValidateCodeHandler();">换一个</a>
+	<script>
+		function changeValidateCodeHandler() {
+			$("#validateCodeImg").attr("src",
+					"/xcl/login/validateCode.do?_=" + (new Date).getTime());
+		}
+	</script>
+</body>
+</html>

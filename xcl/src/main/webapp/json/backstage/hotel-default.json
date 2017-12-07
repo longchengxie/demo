@@ -1,0 +1,43 @@
+
+[
+  {
+    "id": "001",
+    "name": "其他",
+    "area": ""
+  },
+  {
+    "id": "002",
+    "name": "一等酒店",
+    "area": "北京"
+  },
+  {
+    "id": "003",
+    "name": "二等酒店",
+    "area": "上海"
+  },
+  {
+    "id": "004",
+    "name": "ued",
+    "area": "北京"
+  },
+  {
+    "id": "005",
+    "name": "这是一个很长的文本这是一个很长的文本这是一个很长的文本",
+    "area": "北京"
+  },
+  {
+    "id": "006",
+    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbccccccccc",
+    "area": "北京"
+  },
+  {
+    "id": "007",
+    "name": "fed",
+    "area": "北京"
+  },
+  {
+    "id": "008",
+    "name": "ued",
+    "area": "北京"
+  }
+]

@@ -1,0 +1,11 @@
+body { padding: 20px; font-size: 16px; background: #FFF; }
+
+#everything { width: 1200px; margin: 0 auto; }
+
+.dialog .dialog-content { overflow: hidden; }
+
+.icon-loading { background-image: url(http://pic.lvmama.com/img/new_v/ui_scrollLoading/loading.gif); width: 28px; height: 28px; }
+
+.error-text { color: #F00; }
+
+p { margin: 5px 0; }

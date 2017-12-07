@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+body,
+input {
+    font-size: 16px;
+    font-family: "Microsoft Yahei", sans-serif;
+    line-height: 30px;
+}
+
+code {
+    font-family: Monaco, Consolas, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.list {
+    padding: 0;
+}
+
+.list li {
+    float: left;
+    width: 18%;
+    margin-right: 2%;
+    display: block;
+}
+
+.list li a {
+    display: block;
+    line-height: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #5995B3;
+    border: 2px solid #CCCCCC;
+}
+
+.list li a:hover {
+    border: 2px solid #6CB5D9;
+    background: #FFFFFF;
+}
+
+#everything {
+    width: 1200px;
+    margin: 0 auto;
+    color: #333333;
+}
+
+#header {
+    width: 1200px;
+    height: 160px;
+    padding-top: 40px;
+    background-color: #c3d1d1;
+}
+
+#nav {
+    background: #6CB5D9;
+    margin: 0;
+    height: 40px;
+}
+
+#nav li {
+    list-style: none;
+    float: left;
+    font-size: 16px;
+}
+
+#nav li a {
+    padding: 0 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+#nav li a:hover {
+    background: #5995B3;
+}
+
+#main {
+    background: #f7f6f4;
+    padding: 0 20px 20px 20px;
+}
+
+#footer {
+    background: #c3d1d1;
+    padding: 20px;
+}
+
+.navigation {
+    position: fixed;
+    top: 190px;
+    right: 50px;
+    padding: 10px 20px 10px 10px;
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.navigation a {
+    display: block;
+    cursor: pointer;
+    color: #333333;
+}
+
+.navigation a:hover {
+    color: #FF6600;
+    background: none;
+}
+
+h1 {
+    font-size: 22px;
+    color: #5995B3;
+}
+
+h2 {
+    font-size: 18px;
+    color: #5995B3;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+.navigation .h1 {
+    font-size: 18px;
+}
+
+.navigation .h2 {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.navigation .h3 {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    padding: 5px 0;
+    margin: 0;
+}
+
+h1.hover,
+h2.hover,
+h3.hover,
+h4.hover,
+h5.hover,
+h6.hover {
+    background: #EEEEEE;
+}
+
+blockquote {
+    background: #EEEEEE;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}

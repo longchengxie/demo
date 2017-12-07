@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/cache
+http://www.springframework.org/schema/cache/spring-cache.xsd"
+	default-destroy-method="close" default-lazy-init="false">
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+	    <property name="maxTotal" value="30" />
+	    <property name="maxIdle" value="20" />
+	    <property name="minIdle" value="10" />
+	    <property name="blockWhenExhausted" value="true"></property>
+	    <property name="maxWaitMillis" value="3000" />
+	    <property name="testOnBorrow" value="false" />
+	    <property name="testOnReturn" value="false" />
+	    <property name="testWhileIdle" value="false" />
+	</bean>
+	<bean id="redisClusterClient" class="com.lvmama.xcl.redisCluster.RedisClusterClient">
+	    <constructor-arg index="0" value="${cluster.redis.server}"></constructor-arg>
+	    <constructor-arg index="1" ref="jedisPoolConfig"></constructor-arg>
+	    <!-- 最大超时 -->
+	    <constructor-arg index="2" value="1000"></constructor-arg>
+	    <!-- 最大重定向 -->
+	    <constructor-arg index="3" value="5"></constructor-arg>
+	    <property name="enable" value="${cluster.redis.enable}"></property>
+	</bean>
+	<!-- 支持序列化为二进制后缓存 -->
+	<bean id="redisClusterPojoClient" class="com.lvmama.xcl.redisCluster.RedisClusterPojoClient">
+		<property name="redisClusterClient" ref="redisClusterClient"></property>
+	</bean>
+	<!-- 支持序列化为Json后缓存 -->
+	<bean id="redisClusterJsonClient" class="com.lvmama.xcl.redisCluster.RedisClusterJsonClient">
+		<property name="redisClusterClient" ref="redisClusterClient"></property>
+	</bean>
+</beans>
