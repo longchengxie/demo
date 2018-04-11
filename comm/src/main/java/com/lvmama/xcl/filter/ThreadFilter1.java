@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.lvmama.xcl.utils.NetUtils;
+import com.lvmama.xcl.hold.pub.DistributedContext;
+import com.lvmama.xcl.net.utils.NetUtils;
+
 
 
 public class ThreadFilter1 implements javax.servlet.Filter {
@@ -39,10 +41,18 @@ public class ThreadFilter1 implements javax.servlet.Filter {
 		}
 
 		try {
-			System.out.println("ThreadFilter1   :"+getRandom18String());
-			String broserIP = getRemoteIpAddress(req);
-			String webIP = NetUtils.getLocalIP();
-			LOG.info("Broser IP=" + broserIP + ", Web ip=" + webIP);
+			System.out.println("ThreadFilter1 ----------  18位随机数:"+getRandom18String());
+			Object webIPObj = DistributedContext.getContext().get("webIP");
+			Object broserIPObj = DistributedContext.getContext().get("broserIP");
+			if (webIPObj == null || broserIPObj == null) {
+				String broserIP = getRemoteIpAddress(req);
+				String webIP = NetUtils.getLocalIP();
+				LOG.info("ThreadFilter1--------------------Broser IP=" + broserIP + ", Web ip=" + webIP);
+				DistributedContext.put("broserIP", broserIP);
+				DistributedContext.put("webIP", webIP);
+			} else {
+				LOG.info("ThreadFilter1--------------------Broser IP=" + broserIPObj + ", Web ip=" + webIPObj);
+			}
 			LOG.info("ThreadFilter1--------------------" + req.getRequestURL() + " ------------------ start");
 			chain.doFilter(request, response);
 		} catch (Exception e) {

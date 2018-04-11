@@ -27,7 +27,7 @@ public class DispatcherServlet extends org.springframework.web.servlet.Dispatche
 		String message = null;
 		StringBuffer sb = request.getRequestURL();
 		try {
-			System.out.println("请求url=" + sb.toString());
+			System.out.println("----DispatcherServlet---------------请求url=" + sb.toString());
 			super.doDispatch(request, response);
 		} catch (Exception e) {
 			msg = e.getMessage();

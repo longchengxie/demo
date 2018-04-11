@@ -7,7 +7,7 @@ public class XclMessageProcesser implements MessageProcesser{
 
 	@Override
 	public void process(Message message) {
-		System.out.println("============fuck收到消息=========="+message.toString()+"=============");
+		System.out.println("====activeMq========收到消息=========="+message.toString()+"=============");
 		
 	}
 

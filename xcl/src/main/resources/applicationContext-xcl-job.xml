@@ -12,7 +12,7 @@
 				<ref local="supplierQualExpireSendEmailJobTrigger"/>
 				<ref local="updateSuppQualSupplierContractToInvalidJobTrigger"/>
 				<ref local="productApiTo360JobTrigger" /> -->
-				<ref local="myJobTrigger" />
+				<!-- <ref local="myJobTrigger" /> -->
 			</list>
 		</property>
 		<property name="quartzProperties">

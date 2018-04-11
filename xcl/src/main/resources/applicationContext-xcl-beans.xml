@@ -30,6 +30,7 @@
 				<value>classpath:redis.properties</value>
 				<value>classpath:redisSharded.properties</value>
 				<value>classpath:jms.properties</value>
+				<value>classpath:jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -41,6 +42,8 @@
 	<import resource="classpath:applicationContext-xcl-job.xml"/>
 	<import resource="classpath:applicationContext-xcl-comm-jms.xml"/>
 	<import resource="classpath:applicationContext-xcl-processer.xml"/>
+	<import resource="classpath:applicationContext-xcl-database.xml"/>
+	<!-- <import resource="classpath:applicationContext-xcl-kafka.xml"/> -->
 	
 	<!-- <bean id="indexServiceImpl" class="com.lvmama.xcl.service.impl.IndexServiceImpl"></bean>
 	<bean id="indexServiceImpl2" class="com.lvmama.xcl.service.impl.IndexServiceImpl"></bean> -->
